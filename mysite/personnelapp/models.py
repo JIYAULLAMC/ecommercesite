@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
 # Employee model
 
 class Employee(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     emp_code = models.IntegerField( unique=True, null=False)
-    emp_fname = models.CharField(null=False)
-    emp_lname = models.CharField()
+    emp_fname = models.CharField(max_length=30,null=False)
+    emp_lname = models.CharField(max_length=30)
     emp_sal = models.FloatField()
     emp_phone = models.PositiveBigIntegerField()
     emp_email = models.EmailField(max_length=30)
